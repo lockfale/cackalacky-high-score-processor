@@ -1,0 +1,1 @@
+update game_challenge set winner = %(discord_id)s, active=0 where id = %(id)s

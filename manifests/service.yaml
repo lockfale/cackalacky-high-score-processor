@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: high-score-processor-svc
+  namespace: cackalacky
+  labels:
+    app: high-score-processor-svc
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8091
+      targetPort: 5001
+  selector:
+    app: high-score-processor

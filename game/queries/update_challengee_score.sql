@@ -1,0 +1,1 @@
+update game_challenge set challengee_score_id = %(score_id)s where id = %(id)s

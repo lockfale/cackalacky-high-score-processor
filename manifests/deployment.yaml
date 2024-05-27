@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: high-score-processor
+  namespace: cackalacky
+  labels:
+    app: high-score-processor
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: high-score-processor
+  template:
+    metadata:
+      labels:
+        app: high-score-processor
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+        - name: high-score-processor
+          image: <aws-account-id>.dkr.ecr.us-east-1.amazonaws.com/high-score-processor
+          envFrom:
+            - secretRef:
+                name: dplr-token-badge-api
+      imagePullSecrets:
+        - name: regcred

@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- deployment.yaml
+- service.yaml
+namespace: cackalacky
+images:
+- name: <aws-account-id>.dkr.ecr.us-east-1.amazonaws.com/high-score-processor
+  newName: <aws-account-id>.dkr.ecr.us-east-1.amazonaws.com/high-score-processor
+  newTag: main-dfcaaaae9eedf532467d0196d8a3bb49bbca6cfe
